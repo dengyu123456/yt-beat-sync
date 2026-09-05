@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yt-beat-sync demo — a metronome riding a YouTube embed</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #14151a; color: #e8e9ee; max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 20px; }
+  label { display: block; font-size: 12px; opacity: .7; margin: 14px 0 4px; }
+  input, button { font: inherit; background: #1e2027; color: inherit; border: 1px solid #33363f; border-radius: 6px; padding: 8px 10px; }
+  input { width: 100%; box-sizing: border-box; }
+  button { cursor: pointer; margin-right: 8px; }
+  button:hover { border-color: #5a5f6e; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  #stage { display: flex; align-items: center; gap: 24px; margin: 28px 0; }
+  #ball { width: 56px; height: 56px; border-radius: 50%; background: #e8e9ee; transition: transform .05s; }
+  #ball.pulsing { animation: pulse .28s ease-out; }
+  @keyframes pulse { 0% { transform: scale(1.35); background: #ffd166; } 100% { transform: scale(1); } }
+  #readout { font-size: 13px; line-height: 1.9; white-space: pre-wrap; }
+  #yt-wrap { margin-top: 24px; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden; }
+  #yt-player { width: 100%; height: 100%; }
+  .dim { opacity: .55; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>yt-beat-sync</h1>
+  <p class="dim">A bouncing ball and a synth metronome, slaved to a YouTube embed's real timeline. Buffer or seek the video — the grid follows.</p>
+
+  <label for="vid">YouTube URL or video ID</label>
+  <input id="vid" value="https://www.youtube.com/watch?v=jNQXAC9IVRw">
+  <div class="row">
+    <div>
+      <label for="bpm">BPM</label>
+      <input id="bpm" type="number" value="96" min="60" max="160">
+    </div>
+    <div>
+      <label for="intro">Intro seconds (time until the beat drops)</label>
+      <input id="intro" type="number" value="0" min="0" step="0.5">
+    </div>
+  </div>
+
+  <div id="stage">
+    <div id="ball"></div>
+    <div>
+      <button id="play">▶ Play (gesture unlocks audio)</button>
+      <button id="stop">■ Stop</button>
+      <button id="nudge-l">−¼ beat</button>
+      <button id="nudge-r">+¼ beat</button>
+    </div>
+  </div>
+
+  <div id="readout">idle</div>
+  <div id="yt-wrap"><div id="yt-player"></div></div>
+
+  <script src="yt-engine.js"></script>
+  <script src="beat-clock.js"></script>
+  <script src="metronome.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
