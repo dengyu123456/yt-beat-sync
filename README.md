@@ -44,7 +44,7 @@ No build step, no dependencies. Take what you need.
 
 ## In production
 
-This pattern ships in [a free browser game](https://rhymegame.org) where you
+This pattern ships in [a free browser game](https://rhymerep.com) where you
 practice freestyle rhymes on real YouTube beats — the same clock drives the
 bouncing ball and the bar-by-bar word drops there.
 
