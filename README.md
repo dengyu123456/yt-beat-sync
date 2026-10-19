@@ -44,9 +44,11 @@ No build step, no dependencies. Take what you need.
 
 ## In production
 
-This pattern ships in [The Rhyme Game](https://rhymegame.org), a free browser
-game where you practice freestyle rhymes on real YouTube beats — the same
-clock drives the bouncing ball and the bar-by-bar word drops there.
+This pattern ships in [a free browser game](https://rhymegame.org) where you
+practice freestyle rhymes on real YouTube beats — the same clock drives the
+bouncing ball and the bar-by-bar word drops there.
+
+Independent browser game — not affiliated with any app of the same name.
 
 ## License
 
